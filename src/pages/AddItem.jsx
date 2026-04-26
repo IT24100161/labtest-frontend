@@ -9,11 +9,14 @@ function AddItem() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/items", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "https://labtest-backend-73kk.onrender.com/api/items",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        },
+      );
       if (res.ok) {
         setMessage("✅ Item added successfully!");
         setForm({ name: "", description: "", price: "" });
